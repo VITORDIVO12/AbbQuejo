@@ -1,0 +1,45 @@
+﻿@page  "/"
+
+<div>
+
+    <h1>comente algo sobre a imagem na tela</h1>
+
+    <img src="/imagens/14673019.png" width="550" />
+
+    <p ">O que acha de vinland Saga?</p>
+
+    <input @bind="comentario" type="text" maxlength="300"/>
+    <button @onclick="Enviar" class="btn btn-primary">Enviar</button>
+    <br />
+    @teste
+
+</div>
+<br />
+
+<h2>Comentarios legais</h2>
+@foreach (string coment in lista)
+{
+    <p>@coment</p>
+
+}
+
+@code{
+    string comentario = "";
+    DateTime dataAtual;
+    string teste;
+    List<string> lista = new List<string>();
+
+    void Enviar()
+    {
+        //teste = "Botão funciona";
+        dataAtual = DateTime.Now;
+        lista.Add(comentario + "-" + dataAtual);
+        comentario = "";
+       
+
+
+    }
+
+
+}
+
